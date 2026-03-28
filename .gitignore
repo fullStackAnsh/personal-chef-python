@@ -1,0 +1,32 @@
+# 🔐 Environment variables (NEVER push secrets)
+.env
+
+# 🐍 Virtual environment
+venv/
+.env/
+
+# 🧠 Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# 📦 Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# 🧪 Logs & temp
+*.log
+*.tmp
+
+# 💻 OS files
+.DS_Store
+Thumbs.db
+
+# 🧰 VS Code
+.vscode/
+
+# 🧪 Testing
+.coverage
+htmlcov/
