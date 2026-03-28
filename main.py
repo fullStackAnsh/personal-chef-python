@@ -1,7 +1,17 @@
 from dotenv import load_dotenv
 import os
 from PIL import Image
-im = Image.open(r"C:\Users\Admin\OneDrive\Pictures\WhatsApp Image 2025-10-27 at 4.39.12 PM.jpeg")
+from langchain_google_genai import ChatGoogleGenerativeAI
 
 load_dotenv()
-im.show()
+api_key = os.getenv("GEMINI_API_KEY")
+
+model = ChatGoogleGenerativeAI(
+    model="gemini-2.5-flash",   
+    temperature=0.3
+)
+
+response = model.invoke("Suggest 2 Indian Surnames ")
+
+print(response.content)
+
