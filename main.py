@@ -39,3 +39,33 @@ message = [ {"role": "user",
 response = model.invoke(message)
 data = json.loads(response.content)
 ingredients = data["ingredients"]
+
+recipe_prompt = f"""
+You are a professional North Indian chef.
+
+Given the following ingredients:
+{ingredients}
+
+Generate 5 North Indian recipes.
+
+Rules:
+- You do NOT need to use all ingredients in every recipe
+- You CAN include additional common Indian ingredients
+- Recipes must be realistic and commonly made in North India
+
+Do NOT include markdown. Do NOT include explanation.
+You are a JSON API
+Return ONLY valid JSON in this format:
+{{
+  "recipes": [
+    {{
+      "name": "Recipe name",
+      "ingredients": ["item1", "item2"],
+      "steps": ["step1", "step2"]
+    }}
+  ]
+}}
+"""
+
+response = model.invoke(recipe_prompt)
+print(response.content)
